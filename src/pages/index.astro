@@ -17,9 +17,9 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="bg-white dark:bg-gray-900 transition-colors duration-200">
 		<Header />
-		<main>
+		<main class="dark:bg-gray-900">
 			<section>
 				<ul class="flex flex-wrap gap-4 list-none m-0 p-0">
 					{
@@ -35,8 +35,8 @@ const posts = (await getCollection('blog')).sort(
 											class="mb-2 rounded-xl group-hover:shadow-custom transition-all duration-200 w-full h-48 object-cover"
 										/>
 									)}
-									<h4 class="m-0 text-black leading-tight group-hover:text-accent transition-colors duration-200 text-base font-bold">{post.data.title}</h4>
-									<p class="m-0 text-gray group-hover:text-accent transition-colors duration-200 text-sm">
+									<h4 class="m-0 text-black dark:text-white leading-tight group-hover:text-accent transition-colors duration-200 text-base font-bold">{post.data.title}</h4>
+									<p class="m-0 text-gray dark:text-gray-400 group-hover:text-accent transition-colors duration-200 text-sm">
 										<FormattedDate date={post.data.pubDate} />
 									</p>
 								</a>
