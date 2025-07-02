@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import NotFoundHeroImage from '../assets/blog-placeholder-5.jpg';
+---
+
+<Layout
+	title="404 - Page Not Found"
+	description="Oops! The page you're looking for doesn't exist."
+	pubDate={new Date()}
+	heroImage={NotFoundHeroImage}
+>
+	<div class="prose max-w-none">
+		<div class="text-center py-16">
+			<!-- Large 404 Display -->
+			<div class="mb-8">
+				<div class="relative inline-block">
+					<h1 class="text-9xl md:text-[12rem] font-bold text-gray-200 dark:text-gray-800 select-none">
+						404
+					</h1>
+					<div class="absolute inset-0 flex items-center justify-center">
+						<div class="text-6xl animate-bounce">🔍</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Main Message -->
+			<div class="mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+					Oops! Page Not Found
+				</h2>
+				<p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+					The page you're looking for seems to have wandered off into the digital void. 
+					Don't worry, even the best explorers sometimes take a wrong turn!
+				</p>
+			</div>
+			
+
+			<!-- Search Alternative -->
+			<div class="mb-12">
+				<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+					Or try searching for what you need:
+				</h3>
+				<div class="max-w-md mx-auto">
+					<div class="relative">
+						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
+						</div>
+						<input
+							type="search"
+							placeholder="Search articles, publications..."
+							class="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+						/>
+					</div>
+					<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+						Press <kbd class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded">⌘K</kbd> to search from anywhere
+					</p>
+				</div>
+			</div>
+
+			<!-- Fun Error Messages -->
+			<div class="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 max-w-lg mx-auto">
+				<div class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
+					<p>🤖 <strong>Error Code:</strong> 404 - Resource Not Found</p>
+					<p>🕰️ <strong>Time:</strong> <span id="current-time"></span></p>
+					<p>🌍 <strong>Location:</strong> The Digital Void</p>
+					<p>💡 <strong>Suggestion:</strong> Turn it off and on again? (Just kidding!)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	// Update current time
+	function updateTime() {
+		const now = new Date();
+		const timeString = now.toLocaleTimeString('en-US', { 
+			hour12: true, 
+			hour: '2-digit', 
+			minute: '2-digit', 
+			second: '2-digit' 
+		});
+		const timeElement = document.getElementById('current-time');
+		if (timeElement) {
+			timeElement.textContent = timeString;
+		}
+	}
+
+	// Update time immediately and then every second
+	updateTime();
+	setInterval(updateTime, 1000);
+
+	// Add some fun interactions
+	document.addEventListener('DOMContentLoaded', () => {
+		// Add gentle floating animation to the magnifying glass
+		const magnifyingGlass = document.querySelector('.animate-bounce') as HTMLElement;
+		if (magnifyingGlass) {
+			magnifyingGlass.addEventListener('click', () => {
+				magnifyingGlass.style.transform = 'scale(1.2)';
+				setTimeout(() => {
+					magnifyingGlass.style.transform = 'scale(1)';
+				}, 200);
+			});
+		}
+
+		// Add search functionality
+		const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+		if (searchInput) {
+			searchInput.addEventListener('keypress', (e: Event) => {
+				if ((e as any).key === 'Enter') {
+					const query = (e.target as HTMLInputElement).value.trim();
+					if (query) {
+						// Redirect to home with search intent
+						window.location.href = `/?search=${encodeURIComponent(query)}`;
+					}
+				}
+			});
+		}
+	});
+</script>
+
+<style>
+	.animate-bounce {
+		transition: transform 0.2s ease-in-out;
+	}
+	
+	kbd {
+		font-family: inherit;
+	}
+</style>
