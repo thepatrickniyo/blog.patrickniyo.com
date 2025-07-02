@@ -21,6 +21,20 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
+/* Dark mode variables */
+:root.dark {
+	--accent: #4f46e5;
+	--accent-dark: #3730a3;
+	--black: 255, 255, 255;
+	--gray: 156, 163, 175;
+	--gray-light: 55, 65, 81;
+	--gray-dark: 229, 231, 235;
+	--gray-gradient: rgba(17, 24, 39, 50%), rgba(17, 24, 39, 1);
+	--box-shadow:
+		0 2px 6px rgba(0, 0, 0, 25%), 0 8px 24px rgba(0, 0, 0, 33%),
+		0 16px 32px rgba(0, 0, 0, 33%);
+}
+
 @font-face {
 	font-family: 'Bricolage Grotesque';
 	src: url('/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
@@ -41,6 +55,14 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 22px;
 	line-height: 1.7;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body styles */
+html.dark body {
+	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background-size: 100% 600px;
+	background-color: rgb(17, 24, 39);
 }
 
 main {
@@ -87,9 +109,18 @@ b {
 
 a {
 	color: var(--accent);
+	transition: color 0.2s ease;
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
+}
+
+/* Dark mode link styles */
+html.dark a {
+	color: #60a5fa; /* Light blue for better visibility in dark mode */
+}
+html.dark a:hover {
+	color: #93c5fd; /* Lighter blue on hover */
 }
 
 p {
@@ -127,6 +158,12 @@ code {
 	border-radius: 2px;
 }
 
+/* Dark mode code styles */
+html.dark code {
+	background-color: rgb(75, 85, 99);
+	color: rgb(229, 231, 235);
+}
+
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
@@ -143,9 +180,47 @@ blockquote {
 	font-size: 1.333em;
 }
 
+/* Dark mode blockquote styles */
+html.dark blockquote {
+	border-left-color: #60a5fa;
+}
+
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
+}
+
+/* Dark mode hr styles */
+html.dark hr {
+	border-top-color: rgb(75, 85, 99);
+}
+
+/* Dark mode prose/content styles */
+html.dark .prose {
+	color: rgb(229, 231, 235);
+}
+
+html.dark .prose h1,
+html.dark .prose h2,
+html.dark .prose h3,
+html.dark .prose h4,
+html.dark .prose h5,
+html.dark .prose h6 {
+	color: rgb(255, 255, 255);
+}
+
+html.dark .prose p {
+	color: rgb(229, 231, 235);
+}
+
+html.dark .prose strong,
+html.dark .prose b {
+	color: rgb(255, 255, 255);
+}
+
+/* Dark mode pre styles */
+html.dark pre {
+	background-color: rgb(31, 41, 55);
 }
 
 @media (max-width: 720px) {
@@ -191,4 +266,30 @@ hr {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/* Glassy header effects */
+@supports (backdrop-filter: blur(16px)) {
+	.supports-backdrop-blur\:bg-white\/60 {
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+	
+	/* .supports-backdrop-blur\:dark\:bg-gray-900\/60 {
+		background-color: rgba(17, 24, 39, 0.6);
+	} */
+}
+
+/* Ensure smooth scrolling for sticky header */
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 4rem;
+}
+
+/* Add subtle shadow animation for sticky header */
+header.sticky {
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+html.dark header.sticky {
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
