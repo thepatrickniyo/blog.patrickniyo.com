@@ -3,11 +3,108 @@ import ThemeToggle from './ThemeToggle.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header class="sticky top-0 z-50 m-0 px-4 backdrop-blur-md transition-all duration-200  supports-backdrop-blur:dark:bg-gray-900/60">
-	<nav class="flex items-center justify-between h-20">
-		<h2 class="m-0 text-base font-bold"><a href="/" class="no-underline text-black dark:text-white">{SITE_TITLE}</a></h2>
+<header class="sticky top-0 z-50 m-0 px-4 backdrop-blur-md transition-all duration-200 supports-backdrop-blur:dark:bg-gray-900/60">
+	<nav class="flex items-center justify-between h-20 gap-4">
+		<h2 class="m-0 text-base font-bold flex-shrink-0"><a href="/" class="no-underline text-black dark:text-white">{SITE_TITLE}</a></h2>
+		
+		<!-- Navigation Links -->
+		<div class="hidden md:flex items-center space-x-6">
+			<a href="/publications" class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-medium">Publications</a>
+			<a href="/talks" class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-medium">Talks</a>
+			<a href="/courses" class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-medium">Courses</a>
+			<a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200 text-sm font-medium">About</a>
+		</div>
+
+		<!-- Search Bar -->
+		<div class="flex-1 max-w-md mx-4 hidden lg:block">
+			<div class="relative">
+				<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+					<svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+					</svg>
+				</div>
+				<input
+					type="search"
+					id="search-input"
+					placeholder="Search articles..."
+					class="w-full pl-10 pr-20 py-2  border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-transparent "
+				/>
+				<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+					<kbd class="hidden sm:inline-flex items-center px-2 py-1 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded">
+						⌘K
+					</kbd>
+				</div>
+			</div>
+		</div>
+
 		<div class="flex items-center gap-2">
+			<!-- Mobile Search Button -->
+			<button class="lg:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200" aria-label="Search">
+				<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+				</svg>
+			</button>
+			
+			<!-- Mobile Menu Button -->
+			<button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-200" aria-label="Menu">
+				<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+				</svg>
+			</button>
+			
 			<ThemeToggle />
 		</div>
 	</nav>
+
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md">
+		<div class="px-4 py-3 space-y-2">
+			<a href="/publications" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors duration-200 text-sm font-medium">Publications</a>
+			<a href="/talks" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors duration-200 text-sm font-medium">Talks</a>
+			<a href="/courses" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors duration-200 text-sm font-medium">Courses</a>
+			<a href="/about" class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors duration-200 text-sm font-medium">About</a>
+			
+			<!-- Mobile Search -->
+			<div class="pt-3">
+				<div class="relative">
+					<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+						<svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+						</svg>
+					</div>
+					<input
+						type="search"
+						placeholder="Search articles..."
+						class="w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>
+
+<script>
+	// Mobile menu toggle
+	const mobileMenuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+	
+	mobileMenuButton?.addEventListener('click', () => {
+		mobileMenu?.classList.toggle('hidden');
+	});
+
+	// Search functionality placeholder
+	const searchInput = document.getElementById('search-input');
+	searchInput?.addEventListener('input', (e) => {
+		const query = (e.target as HTMLInputElement).value;
+		// TODO: Implement search functionality
+		console.log('Searching for:', query);
+	});
+
+	// Keyboard shortcut for search (⌘K / Ctrl+K)
+	document.addEventListener('keydown', (e) => {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+			e.preventDefault();
+			searchInput?.focus();
+		}
+	});
+</script>

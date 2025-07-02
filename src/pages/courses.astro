@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import CoursesHeroImage from '../assets/blog-placeholder-4.jpg';
+---
+
+<Layout
+	title="Courses"
+	description="Educational content, tutorials, and learning resources"
+	pubDate={new Date()}
+	heroImage={CoursesHeroImage}
+>
+	<div class="prose max-w-none">
+		<div class="text-center py-16">
+			<div class="mb-8">
+				<svg class="w-24 h-24 mx-auto text-gray-400 dark:text-gray-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+				</svg>
+			</div>
+			
+			<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Courses in Development!</h2>
+			<p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+				I'm crafting comprehensive courses that will help developers master modern web technologies. 
+				These courses will combine theoretical knowledge with practical, real-world projects.
+			</p>
+			
+			<div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg p-8 max-w-3xl mx-auto">
+				<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Upcoming Course Topics</h3>
+				<div class="grid md:grid-cols-2 gap-6 text-left">
+					<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+						<div class="flex items-center mb-3">
+							<div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+								<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+								</svg>
+							</div>
+							<h4 class="font-semibold text-gray-900 dark:text-white">Modern Frontend Development</h4>
+						</div>
+						<p class="text-sm text-gray-600 dark:text-gray-400">React, TypeScript, Tailwind CSS, and modern tooling</p>
+					</div>
+					
+					<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+						<div class="flex items-center mb-3">
+							<div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+								<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path>
+								</svg>
+							</div>
+							<h4 class="font-semibold text-gray-900 dark:text-white">Full-Stack Web Applications</h4>
+						</div>
+						<p class="text-sm text-gray-600 dark:text-gray-400">End-to-end development with Node.js, databases, and deployment</p>
+					</div>
+					
+					<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+						<div class="flex items-center mb-3">
+							<div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
+								<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+								</svg>
+							</div>
+							<h4 class="font-semibold text-gray-900 dark:text-white">Performance Optimization</h4>
+						</div>
+						<p class="text-sm text-gray-600 dark:text-gray-400">Advanced techniques for lightning-fast web applications</p>
+					</div>
+					
+					<div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
+						<div class="flex items-center mb-3">
+							<div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+								<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5-2a9 9 0 11-5.5-8.28"></path>
+								</svg>
+							</div>
+							<h4 class="font-semibold text-gray-900 dark:text-white">Testing & Quality Assurance</h4>
+						</div>
+						<p class="text-sm text-gray-600 dark:text-gray-400">Unit testing, integration testing, and best practices</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 max-w-2xl mx-auto">
+				<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Course Features</h3>
+				<div class="grid grid-cols-2 gap-4 text-sm">
+					<div class="flex items-center space-x-2">
+						<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+						</svg>
+						<span class="text-gray-700 dark:text-gray-300">Hands-on Projects</span>
+					</div>
+					<div class="flex items-center space-x-2">
+						<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+						</svg>
+						<span class="text-gray-700 dark:text-gray-300">Code Reviews</span>
+					</div>
+					<div class="flex items-center space-x-2">
+						<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+						</svg>
+						<span class="text-gray-700 dark:text-gray-300">Interactive Exercises</span>
+					</div>
+					<div class="flex items-center space-x-2">
+						<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+						</svg>
+						<span class="text-gray-700 dark:text-gray-300">Community Support</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mt-8 space-y-4">
+				<p class="text-gray-600 dark:text-gray-400">
+					Want to be notified when courses are released?
+				</p>
+				<a href="/about" class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200">
+					Stay Updated
+					<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</Layout>
