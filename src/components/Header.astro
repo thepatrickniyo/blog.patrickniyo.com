@@ -1,16 +1,10 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <header class="m-0 px-4 bg-white shadow-sm">
 	<nav class="flex items-center justify-between">
-		<h2 class="m-0 text-base"><a href="/" class="no-underline">{SITE_TITLE}</a></h2>
-		<!-- <div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div> -->
+		<h2 class="m-0 text-base font-bold"><a href="/" class="no-underline">{SITE_TITLE}</a></h2>
 		<div class="social-links flex md:flex hidden">
 			<a href="https://linkedin.com/in/patrickniyo" target="_blank" class="flex py-4 px-2 text-black border-b-4 border-transparent no-underline">
 				<span class="sr-only">Follow Patrick on LinkedIn</span>
